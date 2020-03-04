@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require_relative 'api_calls.rb'
+
 # Station.delete_all
 # Station.reset_pk_sequence
 
@@ -14,13 +15,13 @@ require_relative 'api_calls.rb'
 
 
 
-Datum.delete_all
-Datum.reset_pk_sequence
+# Datum.delete_all
+# Datum.reset_pk_sequence
 
 # Location.create(name: "Washington")
 
 seed = GetData.new
 # seed.station_create
-seed.historic_data
+# seed.historic_data
 
 
