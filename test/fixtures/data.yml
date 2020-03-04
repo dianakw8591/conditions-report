@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  station: one
+  date: 2020-03-03 15:08:56
+  high_temp: 1.5
+  low_temp: 1.5
+  precip_accumulation: 1.5
+  precip_type: MyString
+  swe: 1.5
+  snow_depth: 1.5
+
+two:
+  station: two
+  date: 2020-03-03 15:08:56
+  high_temp: 1.5
+  low_temp: 1.5
+  precip_accumulation: 1.5
+  precip_type: MyString
+  swe: 1.5
+  snow_depth: 1.5
