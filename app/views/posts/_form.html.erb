@@ -1,0 +1,11 @@
+<%= form_for @post do |f| %>
+    <%= f.collection_select :location_id, Location.all, :id, :name %><br>
+    <%= f.label :date %>
+    <%= f.date_field :date %><br>
+    <%= f.label :title %>
+    <%= f.text_field :title %><br>
+    <%= f.label :content %>
+    <%= f.text_area :content %><br>
+    <%= f.label :location %>  
+    <%= f.submit "Post" %>
+<% end %>

@@ -1,0 +1,47 @@
+<header class='clearfix'>
+<h1>Conditions Report</h1>
+  <div class="left-nav">
+    <ul>
+      <li><%= link_to "Home", root_path %></li>
+    </ul>
+  </div>
+  <div class="left-nav">
+    <ul>
+        <li><%=link_to "Locations", locations_path%></li>
+    </ul>
+  </div>
+  <div class="left-nav">
+    <ul>
+      <li><%= link_to "View All Posts", posts_path %></li>
+    </ul>
+  </div>
+  <div class="left-nav">
+    <ul>
+        <li><%= link_to "New Post", new_post_path %></li>
+    </ul>
+  </div>
+<% if logged_in? %>
+    <div class="right-nav">
+        <ul>
+        <li><%= link_to "Account", current_user %></li>
+        </ul>
+    </div>
+    <div class="right-nav">
+    <ul>
+        <li>Hi, <%=current_user.username %>!</li>
+    </ul>
+  </div>
+<% else %>
+    <div class="right-nav">
+        <ul>
+        <li><%= link_to "Sign-Up", new_user_path %></li>
+        </ul>
+    </div>
+    <div class="right-nav">
+        <ul>
+        <li><%= link_to "Sign-In", login_path %></li>
+        </ul>
+    </div>
+<% end %>
+</header>
+

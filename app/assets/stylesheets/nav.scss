@@ -1,0 +1,24 @@
+header {
+    background: blue;
+    padding: 10px;
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+    }
+    a {
+      text-decoration: none;
+      font-weight: bold;
+      color: white;
+    }
+  }
+  
+  .left-nav {
+    float: left;
+    padding: 10px;
+  }
+  
+  .right-nav {
+    float: right;
+    padding: 10px;
+  }

@@ -1,0 +1,15 @@
+<h1><%= @location.name %></h1>
+
+<h2>Current Weather Conditions:</h2>
+<div>figure out API call</div>
+
+<h2>Recent Posts:</h2>
+<% if Post.all.empty? %>
+    <div>No recent post activity</div>
+<% else %>
+    <% @location.posts.each do |post| %>
+        <%= link_to post.title, post %>
+    <% end %>
+<% end %>
+
+<div><%=link_to "Add a New Post!", new_post_path %></div>
