@@ -16,38 +16,32 @@ class GetData
         JSON.parse(self.get_data(url))
     end
 
-
-    def station_create
-        stations_url = "http://api.powderlin.es/stations"
-        stations = parse(stations_url)
-        stations.collect do |station|
-            id = station["triplet"].split(':')
-            if id[1] == "WA"
-                hash = 
-                    {location_id: 1,
-                    elevation: station["elevation"],
-                    lat: station["location"]["lat"],
-                    lng: station["location"]["lng"],
-                    name: station["name"],
-                    triplet: station["triplet"]
-                    }
-                Station.create(hash)
+    def station_and_data_create
+        station_array = ["1107:WA:SNTL", "909:WA:SNTL", "908:WA:SNTL", "672:WA:SNTL", "791:WA:SNTL", "679:WA:SNTL", "515:WA:SNTL", "1171:WA:SNTL", "502:WA:SNTL"]
+        base_url = "http://api.powderlin.es/station/"
+        station_array.each do |triplet|
+            url = base_url + triplet + "?days=3650"
+            hash = parse(url)
+            station_hash = hash["station_information"]
+            station = Station.create(parse_station_data(station_hash))
+            data_array = hash["data"]
+            data_array.each do |data_hash|
+                parsed_data = parse_historic_data_by_date(data_hash)
+                parsed_data[:station_id] = station.id
+                Datum.create(parsed_data)
             end
         end
     end
-    
-    def historic_data
-        Station.all.each do |station|
-            triplet = station.triplet
-            url = "http://api.powderlin.es/station/" + triplet + "?days=3650"
-            data = parse(url)["data"]
-            # array of hashes where each hash is a single date
-            data.each do |hash|
-                parsed_hash = parse_historic_data_by_date(hash)
-                data_row = Datum.create(station_id: station.id)
-                data_row.update(parsed_hash)
-            end
-        end
+
+    def parse_station_data(hash)
+        hash_for_station = {
+            location_id: 1,
+            elevation: hash["elevation"],
+            lat: hash["location"]["lat"],
+            lng: hash["location"]["lng"],
+            name: hash["name"],
+            triplet: hash["triplet"]
+            }
     end
 
     def parse_historic_data_by_date(hash)
@@ -60,5 +54,3 @@ class GetData
     end
 
 end
-
-# http://api.powderlin.es/station/791:WA:SNTL?startdate=2013-01-15&enddate=2013-01-15

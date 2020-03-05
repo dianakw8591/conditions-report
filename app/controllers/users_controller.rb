@@ -7,7 +7,7 @@ class UsersController < ApplicationController
         if user_params[:password_confirmation] == user_params[:password]
             new_user = User.create(user_params)
             if new_user.valid?
-                flash[:notice] = "User created successfullly!"
+                flash[:notice] = ["User created successfullly!"]
                 redirect_to login_path
             else
                 flash.now[:notice] = new_user.errors.full_messages
@@ -37,6 +37,13 @@ class UsersController < ApplicationController
             flash.now[:notice] = @user.errors.full_messages
             render :edit
         end
+    end
+
+    def destroy
+        user = current_user
+        session.delete(:user_id)
+        user.destroy
+        redirect_to root_path
     end
      
     private

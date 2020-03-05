@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_04_052609) do
+ActiveRecord::Schema.define(version: 2020_03_05_021010) do
 
   create_table "data", force: :cascade do |t|
     t.integer "station_id", null: false
@@ -38,13 +38,13 @@ ActiveRecord::Schema.define(version: 2020_03_04_052609) do
 
   create_table "posts", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "station_id", null: false
+    t.integer "location_id", null: false
     t.datetime "date"
     t.string "title"
     t.string "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["station_id"], name: "index_posts_on_station_id"
+    t.index ["location_id"], name: "index_posts_on_location_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 2020_03_04_052609) do
   end
 
   add_foreign_key "data", "stations"
-  add_foreign_key "posts", "stations"
+  add_foreign_key "posts", "stations", column: "location_id"
   add_foreign_key "posts", "users"
   add_foreign_key "stations", "locations"
   add_foreign_key "users", "locations"
