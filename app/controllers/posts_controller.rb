@@ -14,7 +14,6 @@ class PostsController < ApplicationController
     end
 
     def edit
-        byebug
         @post = Post.find(params[:id])
     end
 
@@ -31,6 +30,7 @@ class PostsController < ApplicationController
         flash[:notice] = "Post deleted successfully"
         redirect_to user_path(current_user)
     end
+
 
     private
 

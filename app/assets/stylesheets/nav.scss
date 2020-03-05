@@ -1,5 +1,5 @@
 header {
-    background: blue;
+    background: rgb(94, 170, 206);
     padding: 10px;
     ul {
       margin: 0;
@@ -14,6 +14,12 @@ header {
 
     h1 {
       color: white;
+      font-family: Brush Script MT;
+      font-size: -webkit-xxx-large;
+    }
+
+    h4 {
+        margin-inline-start: 50px;
     }
   }
   

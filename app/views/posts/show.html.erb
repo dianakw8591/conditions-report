@@ -4,6 +4,7 @@
 <div>Location: <%=@post.location.name %></div>
 <div>Snowpack at time of post: <%= @post.snowpack %> inches<div>
 <div> <%= @post.content %></div>
+<div>Images:</div>
 <% if @post.photos.attached? %>
     <% @post.photos.each do |photo| %>
         <%= image_tag photo.variant(resize: '1200x675').processed %>

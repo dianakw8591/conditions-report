@@ -4,7 +4,7 @@
 
 <h1>Account Information</h1>
 <div>Username: <%= @user.username %></div>
-<div>Location: <%= @user.location.name %></div>
+<div>My Location: <%= @user.location.name %></div>
 <div id = "posts">
 <h3>My Posts:</h3>
     <ul><% @user.posts.each do |post| %>
