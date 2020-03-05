@@ -1,9 +1,8 @@
-<h1>Recent Posts:</h1>
+<h1>All Posts:</h1>
     <% if Post.all.empty? %>
-        <div>No recent post activity</div>
+        <div>No post activity</div>
     <% else %>
     <ul><% Post.all.each do |post| %>
         <li><%= link_to "#{post.title} from #{post.date}", post %></li>
     <% end %> </ul>
 <% end %>
-

@@ -5,6 +5,15 @@
 <h1>Account Information</h1>
 <div>Username: <%= @user.username %></div>
 <div>Location: <%= @user.location.name %></div>
+<div id = "posts">
+<h3>My Posts:</h3>
+    <ul><% @user.posts.each do |post| %>
+        <li><%= link_to "#{post.title} from #{post.date}", post %>
+        <%= button_to 'EDIT POST', edit_post_path(post.id), method: :get%>
+        <%= button_to 'DELETE POST', "/posts/#{post.id}", method: :delete%></li>
+    <% end %> </ul>
+</div>
+
 
 <%= button_to 'EDIT ACCOUNT', edit_user_path, method: :get%>
 <%= button_to 'DELETE', '/users/delete', method: :delete%>

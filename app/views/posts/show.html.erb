@@ -1,1 +1,17 @@
-<%= @post.title %>
+<h1><%= @post.title %></h1>
+<h3>Submitted by <%= @post.user.username %></h3>
+<div>Date: <%= @post.date %></div>
+<div>Location: <%=@post.location.name %></div>
+<div>Snowpack at time of post: <%= @post.snowpack %> inches<div>
+<div> <%= @post.content %></div>
+<% if @post.photos.attached? %>
+    <% @post.photos.each do |photo| %>
+        <%= image_tag photo.variant(resize: '1200x675').processed %>
+    <% end %>
+<% end %>
+
+<% if current_user == @post.user %>
+    <%= button_to 'EDIT POST', edit_post_path(@post.id), method: :get%>
+    <%= button_to 'DELETE POST', "/posts/#{@post.id}", method: :delete%></li>
+<% end %>
+
