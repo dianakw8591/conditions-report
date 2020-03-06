@@ -1,27 +1,44 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
 # conditions-report
 
 Snow Report is a posting site for associating moutain photos with the local snowpack at the time of the post. Search functionality allows a user to search a specific area for posts with a snowpack within a certain range. For example, a user could find posts (and pictures) from the Stevens Pass area when the snowpack was around 100". 
+
+## Configuration
+
+Snow Report is a Rails app built using Rails 6.0.2.1.
+
+Download or clone the repository, then run 'bundle install' to install required gems.
+```
+bundle install
+```
+Run 'rails db:migrate' in the root directory to create the database locally.
+```
+rails db:migrate
+```
+Run 'rails db:seed` to seed the database with location and snowpack data.
+```
+rails db:seed
+```
+Run 'rails s' to start a local server.
+```
+rails s
+```
+Navigate to `http://localhost:3000/` to explore the site.
+
+## Contributing
+
+Contributions are welcome. Feel free to open a pull request or branch from this project.
+
+## Credits
+
+SNOTEL station data was easily accessible thanks to Powder Lines API: http://powderlin.es/api.html
+
+Regions are based on the Northwest Avalanche Center's regions used for avalanche forecasting: https://www.nwac.us/weatherdata/map/#
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
+
+
