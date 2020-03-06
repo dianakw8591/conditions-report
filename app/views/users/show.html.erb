@@ -2,17 +2,38 @@
     <%= flash[:notice]%><br>
 <% end %>
 
-<h1>Account Information</h1>
+<fieldset>
+<legend><h2>Current Weather Conditions for <%= @user.location.name %> :</h2></legend>
+
+<div>figure out API call</div>
+</fieldset>
+
+<fieldset>
+<legend><h2>Current Snowpack for <%= @user.location.name %>:</h2></legend>
+<div><%= @user.location.central_station_snowpack %> inches at <%= @user.location.central_station.name %><br>
+    Updated at <%= @user.location.central_station_date %></div>
+</fieldset>
+
+<fieldset>
+<legend><h2>Account Information</h2></legend>
 <div>Username: <%= @user.username %></div>
 <div>My Location: <%= @user.location.name %></div>
-<div id = "posts">
-<h3>My Posts:</h3>
+</fieldset>
+
+<fieldset>
+<legend><h3>My Posts:</h3></legend>
+    <% if @user.posts.empty? %>
+        <p>No current posts!</p>
+        <%= link_to "Add a new post!", new_post_path %>
+    <% else %>
     <ul><% @user.posts.each do |post| %>
         <li><%= link_to "#{post.title} from #{post.date}", post %>
         <%= button_to 'EDIT POST', edit_post_path(post.id), method: :get%>
         <%= button_to 'DELETE POST', "/posts/#{post.id}", method: :delete%></li>
     <% end %> </ul>
-</div>
+    <% end %>
+</fieldset>
+
 
 
 <%= button_to 'EDIT ACCOUNT', edit_user_path, method: :get%>

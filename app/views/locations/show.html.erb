@@ -2,14 +2,19 @@
 
 <img src = <%= @location.img_url%> alt = <%=@location.name %> width="525" height="349">
 
-<h2>Current Weather Conditions:</h2>
+<fieldset>
+<legend><h2>Current Weather Conditions:</h2></legend>
 <div>figure out API call</div>
+</fieldset>
 
-<h2>Current Snowpack:</h2>
+<fieldset>
+<legend><h2>Current Snowpack:</h2></legend>
 <div><%= @location.central_station_snowpack %> inches at <%= @location.central_station.name %><br>
     Updated at <%= @location.central_station_date %></div>
+</fieldset>
 
-<h2>Recent Posts:</h2>
+<fieldset>
+<legend><h2>Recent Posts:</h2></legend>
 <% if @location.posts.empty? %>
     <div>No recent post activity</div>
 <% else %>
@@ -21,3 +26,4 @@
 <% end %>
 
 <div><%=link_to "Add a New Post!", new_post_path %></div>
+</fieldset>

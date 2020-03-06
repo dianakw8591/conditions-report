@@ -5,8 +5,12 @@ class Post < ApplicationRecord
 
 
   def snowpack
-    # location.station.data where data.date = post.date
-    location.central_station.data.find_by(date: self.date).snow_depth
+    query = location.central_station.data.find_by(date: self.date)
+    if query.nil?
+      "N/A"
+    else
+    query.snow_depth
+    end
   end
 
 end

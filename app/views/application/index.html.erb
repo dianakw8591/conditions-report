@@ -1,13 +1,26 @@
 <%= image_tag('/images/north-cascades.jpg', size: "1000x563",alt: "North Cascades") %>
 
+<h1>Welcome to Snow Report!</h1>
+<div>Snow Report hosts condition reports and beta photos
+from the Cascades and Olympics of Washington and makes them searchable by snowpack. 
+Here's how it works:
+    <ol>
+        <li>Post photos and reports from your latest mountain adventure.</li>
+        <li>Posts are associated with the snowpack at the time and location of your trip.</li>
+        <li>All posts are then searchable by snowpack.</li>
+    </ol>
+No more wondering what lines are in early season! Just search for posts from your destination
+with snowpack similar to the current conditions. Happy skiing!</div>
+
+
 <fieldset>
 <legend><h1>Search Posts</h1></legend>
 <%= form_with(url: "/search", method: "get", local: true) do %>
     <%= label_tag("Choose locations:") %>
     <%= collection_select(:location, :id, Location.all, :id, :name) %><br>
-    <%= label_tag(:min, "Minimum Snow Depth:") %>
+    <%= label_tag(:min, "Minimum Snow Depth (in):") %>
     <%= number_field_tag(:min) %><br>
-    <%= label_tag(:max, "Maximum Snow Depth:") %>
+    <%= label_tag(:max, "Maximum Snow Depth (in):") %>
     <%= number_field_tag(:max) %><br>
     <%= submit_tag("Search Posts") %>
 <% end %>
