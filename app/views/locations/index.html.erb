@@ -1,7 +1,10 @@
 <figure>
 <%= image_tag('/images/location_map.png', size: "500x428", alt: "Location Map") %>
-<figcaption>Regions and weather stations from <a href = "https://www.nwac.us/weatherdata/map/">NWAC</a></figcaption>
+<figcaption>Regions and weather stations from <a href = "https://www.nwac.us/weatherdata/map/" target="_blank">NWAC</a></figcaption>
 </figure>
+<fieldset>
+<legend><h2>All Locations</h2></legend>
 <div id="list"><% Location.all.each do |location| %>
     <li><%= link_to location.name, location %></li>
 <% end %></div>
+</fieldset>
