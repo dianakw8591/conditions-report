@@ -1,5 +1,20 @@
 <%= image_tag('/images/north-cascades.jpg', size: "1000x563",alt: "North Cascades") %>
-<h1>Recent Posts:</h1>
+
+<fieldset>
+<legend><h1>Search Posts</h1></legend>
+<%= form_with(url: "/search", method: "get", local: true) do %>
+    <%= label_tag("Choose locations:") %>
+    <%= collection_select(:location, :id, Location.all, :id, :name) %><br>
+    <%= label_tag(:min, "Minimum Snow Depth:") %>
+    <%= number_field_tag(:min) %><br>
+    <%= label_tag(:max, "Maximum Snow Depth:") %>
+    <%= number_field_tag(:max) %><br>
+    <%= submit_tag("Search Posts") %>
+<% end %>
+</fieldset>
+
+<fieldset>
+<legend><h1>Recent Posts:</h1></legend>
     <% if Post.all.empty? %>
         <div>No recent post activity</div>
     <% else %>
@@ -7,4 +22,5 @@
         <li><%= link_to "#{post.title} from #{post.date}", post %></li>
     <% end %> </ul>
 <% end %>
+</fieldset>
 

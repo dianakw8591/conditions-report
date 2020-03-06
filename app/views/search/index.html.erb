@@ -1,0 +1,10 @@
+<fieldset>
+<legend><h1>Search Results</h1></legend>
+<% if @posts == [] %>
+    <div>No posts match your search.</div>
+<% else %>
+    <% @posts.each do |post| %>
+        <li><%= link_to "#{post.title} from #{post.date}", post %></li>
+    <% end %>
+<% end %>
+<%= link_to "Back to Search", root_path %>

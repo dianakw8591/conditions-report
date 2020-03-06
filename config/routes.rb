@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'application#index'
+  get '/search', to: 'search#index'
   resources :locations
   resources :data
   resources :posts
