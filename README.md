@@ -6,6 +6,8 @@ Snow Report is a posting site for associating mountain photos with the local sno
 
 A user can browse locations, see posts, and search for posts without having an account or logging in. Only logged in users can add posts and manage their posts.
 
+Watch the demo [here](https://youtu.be/lGMtXOB_52A).
+
 ## Configuration
 
 Snow Report is a Rails app built using Rails 6.0.2.1.
