@@ -19,7 +19,7 @@
     <div>No recent post activity</div>
 <% else %>
     <ul>
-    <% @location.posts.each do |post| %>
+    <% @location.posts.sort_by { |post| post.date}.reverse_each do |post| %>
         <li><%= link_to "#{post.title} from #{post.date}", post %></li>
     <% end %>
     </ul>

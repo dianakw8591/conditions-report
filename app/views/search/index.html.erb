@@ -3,7 +3,7 @@
 <% if @posts == [] %>
     <div>No posts match your search.</div>
 <% else %>
-    <% @posts.each do |post| %>
+    <% @posts.sort_by { |post| post.date}.reverse_each do |post| %>
         <li><%= link_to "#{post.title} from #{post.date}", post %></li>
     <% end %>
 <% end %>
