@@ -1,10 +1,12 @@
 # README
 
-# conditions-report
+# Snow Report
 
-Snow Report is a posting site for associating moutain photos with the local snowpack at the time of the post. Search functionality allows a user to search a specific area for posts with a snowpack within a certain range. For example, a user could find posts (and pictures) from the Stevens Pass area when the snowpack was around 100".
+Snow Report is a posting site for associating mountain photos with the local snowpack at the time of the post. Search functionality allows a user to search a specific area for posts with a snowpack within a certain range. For example, a user could find posts (and pictures) from the Stevens Pass area when the snowpack was around 100".
 
 A user can browse locations, see posts, and search for posts without having an account or logging in. Only logged in users can add posts and manage their posts.
+
+Watch the demo [here](https://youtu.be/lGMtXOB_52A).
 
 ## Configuration
 
