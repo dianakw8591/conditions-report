@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
     before_action :authorized, only: [:show, :edit]
-    def new
-    end
 
     def create
         if user_params[:password_confirmation] == user_params[:password]

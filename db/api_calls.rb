@@ -2,8 +2,6 @@ require 'net/http'
 require 'open-uri'
 require 'json'
 
-
-     
 class GetData
     
     def get_data(url)
