@@ -34,7 +34,7 @@ Location.create(name: "East Slopes South - South of I-90 to Columbia River", img
 seed = GetData.new
 seed.station_and_data_create
 
-station_array =["1107:WA:SNTL", "909:WA:SNTL", "908:WA:SNTL", "672:WA:SNTL", "791:WA:SNTL", "679:WA:SNTL", "515:WA:SNTL", "1171:WA:SNTL", "502:WA:SNTL"]
+# station_array =["1107:WA:SNTL", "909:WA:SNTL", "908:WA:SNTL", "672:WA:SNTL", "791:WA:SNTL", "679:WA:SNTL", "515:WA:SNTL", "1171:WA:SNTL", "502:WA:SNTL"]
 
 station = Station.find_by(triplet: "1107:WA:SNTL")
 loc = Location.find_by(name: "Olympics")
